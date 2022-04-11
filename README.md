@@ -31,6 +31,10 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
+### 1.0.1
+
+Quality of life improvements.
+
 ### 1.0.0
 
 Initial release of Run Code Block.

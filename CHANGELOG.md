@@ -2,8 +2,11 @@
 
 All notable changes to the "runcodeblock" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
+## [1.0.0]
 
 - Initial release
+
+## [1.0.1]
+
+- Now the entire temp folder is deleted on extension deactivation.
+- Now it's possible to start and end the selection anywhere in the line and it works as expected.
