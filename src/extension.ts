@@ -3,8 +3,7 @@ import { RunCodeLensProvider } from './runCodeLensProvider';
 
 import addCodeBlock from './Commands/addCodeBlock';
 import runCode from './Commands/runCode';
-
-const fs = require('fs');
+import { clearTemp } from './utils/clearTemp';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "runcodeblock" is now active!');
@@ -39,11 +38,5 @@ export function activate(context: vscode.ExtensionContext) {
 
 // this method is called when your extension is deactivated
 export function deactivate() {
-  if (!vscode.workspace.workspaceFolders) {
-    return;
-  }
-
-  fs.unlinkSync(
-    `${vscode.workspace.workspaceFolders[0].uri.fsPath}/.vscode/runBlockTemp`,
-  );
+  clearTemp();
 }
