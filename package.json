@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:runcodeblock.helloWorld"
+    "onLanguage:javascript"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "runcodeblock.helloWorld",
-        "title": "Hello World"
+        "command": "runcodeblock.runCodeBlock",
+        "title": "Run Code Block"
       }
     ],
     "snippets": [
