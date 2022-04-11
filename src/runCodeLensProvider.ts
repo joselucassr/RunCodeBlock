@@ -25,8 +25,8 @@ export class RunCodeLensProvider implements CodeLensProvider {
           arguments: [i + 1],
         };
 
-        let topOfDocument = new Range(i, 0, i, 0);
-        let codeLens = new CodeLens(topOfDocument, c);
+        let topOfLine = new Range(i, 0, i, 0);
+        let codeLens = new CodeLens(topOfLine, c);
 
         codeLensArr.push(codeLens);
       }
