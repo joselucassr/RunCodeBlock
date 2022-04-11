@@ -33,6 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(runCodeBlockDisposable);
+  context.subscriptions.push(addCodeBlockDisposable);
   context.subscriptions.push(codeLensProviderDisposable);
 }
 
