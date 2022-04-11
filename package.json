@@ -3,6 +3,7 @@
   "displayName": "RunCodeBlock",
   "description": "Runs the code between a pair of comments.",
   "version": "1.0.0",
+  "publisher": "joselucassr",
   "repository": {
     "type": "git",
     "url": "https://github.com/joselucassr/RunCodeBlock"
