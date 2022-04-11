@@ -2,7 +2,11 @@
   "name": "runcodeblock",
   "displayName": "RunCodeBlock",
   "description": "Runs the code between a pair of comments.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joselucassr/RunCodeBlock"
+  },
   "engines": {
     "vscode": "^1.66.0"
   },
