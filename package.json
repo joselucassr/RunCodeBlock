@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:javascript"
+    "onLanguage:javascript",
+    "onCommand:runcodeblock.addCodeBlock"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -18,6 +19,10 @@
       {
         "command": "runcodeblock.runCodeBlock",
         "title": "Run Code Block"
+      },
+      {
+        "command": "runcodeblock.addCodeBlock",
+        "title": "Add Code Block"
       }
     ],
     "snippets": [

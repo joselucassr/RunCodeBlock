@@ -1,13 +1,15 @@
 import * as vscode from 'vscode';
-import runCode from './Commands/runCode';
 import { RunCodeLensProvider } from './runCodeLensProvider';
+
+import addCodeBlock from './Commands/addCodeBlock';
+import runCode from './Commands/runCode';
 
 const fs = require('fs');
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "runcodeblock" is now active!');
 
-  let disposable = vscode.commands.registerCommand(
+  let runCodeBlockDisposable = vscode.commands.registerCommand(
     'runcodeblock.runCodeBlock',
     runCode,
   );
@@ -25,7 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
     new RunCodeLensProvider(),
   );
 
-  context.subscriptions.push(disposable);
+  let addCodeBlockDisposable = vscode.commands.registerTextEditorCommand(
+    'runcodeblock.addCodeBlock',
+    addCodeBlock,
+  );
+
+  context.subscriptions.push(runCodeBlockDisposable);
   context.subscriptions.push(codeLensProviderDisposable);
 }
 

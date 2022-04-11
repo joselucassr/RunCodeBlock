@@ -2,7 +2,6 @@ import {
   CancellationToken,
   CodeLens,
   CodeLensProvider,
-  ProviderResult,
   Range,
   TextDocument,
   Command,
