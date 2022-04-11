@@ -1,4 +1,5 @@
 import { window, workspace } from 'vscode';
+import { getRunCmd } from '../utils/getLangSpecifics';
 
 const nReadlines = require('n-readlines');
 const fs = require('fs');
@@ -46,14 +47,19 @@ export default async function runCode(lineValue: number) {
     lineNumber++;
   }
 
-  // Creates the .vscode/temp dir if not created
-  fs.mkdirSync(`${workspace.workspaceFolders[0].uri.fsPath}/.vscode/temp`, {
-    recursive: true,
-  });
+  // Creates the .vscode/runBlockTemp dir if not created
+  fs.mkdirSync(
+    `${workspace.workspaceFolders[0].uri.fsPath}/.vscode/runBlockTemp`,
+    {
+      recursive: true,
+    },
+  );
+
+  let fileExtension = editor.document.fileName.match(/\w*$/)![0];
 
   // Creates the file to be run
   fs.writeFileSync(
-    `${workspace.workspaceFolders[0].uri.fsPath}/.vscode/temp/runCodeBlock.js`,
+    `${workspace.workspaceFolders[0].uri.fsPath}/.vscode/runBlockTemp/runCodeBlock.${fileExtension}`,
     fileArr.join('\n'),
   );
 
@@ -73,5 +79,9 @@ export default async function runCode(lineValue: number) {
   terminal.show(true);
   terminal.sendText('clear');
 
-  terminal.sendText(`node .vscode/temp/runCodeBlock.js`);
+  let runCmd = getRunCmd(fileExtension);
+
+  terminal.sendText(
+    `${runCmd} .vscode/runBlockTemp/runCodeBlock.${fileExtension}`,
+  );
 }

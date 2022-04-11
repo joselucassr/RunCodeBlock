@@ -44,6 +44,6 @@ export function deactivate() {
   }
 
   fs.unlinkSync(
-    `${vscode.workspace.workspaceFolders[0].uri.fsPath}/.vscode/temp/runCodeBlock.js`,
+    `${vscode.workspace.workspaceFolders[0].uri.fsPath}/.vscode/runBlockTemp`,
   );
 }
