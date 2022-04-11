@@ -25,6 +25,21 @@
         "title": "Add Code Block"
       }
     ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "runcodeblock.addCodeBlock",
+          "when": "editorHasSelection"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "runcodeblock.addCodeBlock",
+          "when": "editorHasSelection",
+          "group": "1_modification"
+        }
+      ]
+    },
     "snippets": [
       {
         "language": "javascript",
