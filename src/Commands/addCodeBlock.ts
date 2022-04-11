@@ -1,4 +1,4 @@
-import { TextEditor, TextEditorEdit, window } from 'vscode';
+import { TextEditor, TextEditorEdit, Position, window } from 'vscode';
 
 export default async function addCodeBlock(
   _: TextEditor,
@@ -8,6 +8,11 @@ export default async function addCodeBlock(
     return;
   }
 
-  edit.insert(window.activeTextEditor.selection.start, '// Start-Block\n');
-  edit.insert(window.activeTextEditor.selection.end, '\n// End-Block');
+  console.log(window.activeTextEditor.selection.end);
+
+  let selectionStart = window.activeTextEditor.selection.start.line;
+  let selectionEnd = window.activeTextEditor.selection.end.line;
+
+  edit.insert(new Position(selectionStart, 0), '// Start-Block\n');
+  edit.insert(new Position(selectionEnd, Infinity), '\n// End-Block');
 }
