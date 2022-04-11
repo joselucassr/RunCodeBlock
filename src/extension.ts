@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
   // Get a document selector for the CodeLens provider
   // This one is any file that has the language of javascript
   let docSelector = {
-    language: 'javascript',
+    pattern: '**/*.{ts,js}',
     scheme: 'file',
   };
 
